@@ -1,0 +1,51 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-09-15",
+  "collections": [
+    {
+      "id": "durmaz-management",
+      "title": "Durmaz Management",
+      "eyebrow": "Business & Management Services",
+      "summary": "Practical business consulting for sustainable growth, focused on helping small businesses improve operations, financial clarity, and decision-making without unnecessary complexity.",
+      "services": [
+        {"name": "Operations & Systems", "description": "Simplify workflows, reduce friction, and build repeatable processes through process mapping, tooling, and practical reporting."},
+        {"name": "Financial Clarity", "description": "Improve visibility into cash flow, costs, pricing, margins, and the financial priorities that matter most."},
+        {"name": "Strategy & Planning", "description": "Turn goals into execution-ready plans with realistic milestones, roadmaps, and decision frameworks."},
+        {"name": "Project & Implementation Support", "description": "Structure scope, timelines, risks, and stakeholder communication so initiatives move from plan to completion."},
+        {"name": "Business Readiness", "description": "Strengthen documentation, policies, vendor and client processes, and day-to-day operational discipline."},
+        {"name": "Advisory Retainer", "description": "Ongoing decision support, priority tracking, accountability, and continuous-improvement guidance."}
+      ],
+      "highlights": ["Small-business focused", "Clear deliverables", "Decision support", "Chicago + Cook County"]
+    },
+    {
+      "id": "tax-season-support",
+      "title": "TaxSeasonSupport",
+      "eyebrow": "Tax Services",
+      "summary": "Tax preparation, compliance, notice support, bookkeeping cleanup, and practical tax-resource content for individuals and small businesses.",
+      "services": [
+        {"name": "Individual Tax Returns", "description": "Support for Form 1040 filing, credits, multistate basics, and organized e-file preparation."},
+        {"name": "Small Business Tax Support", "description": "Schedule C support, expense cleanup, tax-ready organization, and bookkeeping-ready outputs."},
+        {"name": "IRS & State Notices", "description": "Notice review, response drafting support, deadline organization, and documentation checklists."},
+        {"name": "Amended Returns", "description": "Correction review, Form 1040-X preparation support, and filing-guidance workflows."},
+        {"name": "Bookkeeping Cleanup", "description": "Organize transactions and records into clearer, tax-ready summaries for review and filing."},
+        {"name": "Tax Planning", "description": "Practical check-ins, withholding guidance, and simple forward-looking tax estimates."}
+      ],
+      "highlights": ["Individuals", "Small businesses", "Compliance-first documentation", "Chicago + Cook County"]
+    },
+    {
+      "id": "mobile-notary-hub",
+      "title": "Durmaz Notary Services DBA MobileNotaryHub",
+      "eyebrow": "Notary Services",
+      "summary": "Mobile and remote online notary services designed for convenient, professional notarization in Chicago and Cook County, subject to document and eligibility requirements.",
+      "services": [
+        {"name": "General Notary Work", "description": "Notarization support for affidavits, authorizations, consent forms, acknowledgments, jurats, and other eligible documents."},
+        {"name": "Loan Signing Services", "description": "Detail-oriented signing support for purchase, refinance, HELOC, seller, and related loan-document packages."},
+        {"name": "Estate-Planning Documents", "description": "Notarization support for eligible powers of attorney, wills, directives, and related documents where permitted."},
+        {"name": "Real-Estate Closing Support", "description": "Professional signing support for attorneys, title and escrow professionals, and clients with real-estate document packages."},
+        {"name": "Mobile Notary", "description": "Scheduled in-person service at an agreed location within the service area, including same-day or after-hours options when available."},
+        {"name": "Remote Online Notarization", "description": "Remote notarization for eligible documents and signers when Illinois requirements and platform eligibility are satisfied."}
+      ],
+      "highlights": ["Mobile service", "Remote online notarization", "ID-verified process", "Chicago + Cook County"]
+    }
+  ]
+}

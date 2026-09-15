@@ -1,6 +1,7 @@
 const FEED_URL = 'https://charming-lapwing-610.eu-west-1.convex.site/repository/public';
+const CONTENT_URL = './content.json';
 
-const state = { records: [], generatedAt: null };
+const state = { records: [], generatedAt: null, collections: [] };
 const recordsEl = document.getElementById('records');
 const emptyEl = document.getElementById('emptyState');
 const errorEl = document.getElementById('errorState');
@@ -9,6 +10,8 @@ const typeEl = document.getElementById('typeFilter');
 const countEl = document.getElementById('recordCount');
 const updatedEl = document.getElementById('lastUpdated');
 const statusEl = document.getElementById('connectionStatus');
+const publicContentEl = document.getElementById('publicContent');
+const contentErrorEl = document.getElementById('contentError');
 
 function text(value) {
   return value == null ? '' : String(value);
@@ -24,6 +27,35 @@ function makeElement(tag, className, value) {
   if (className) el.className = className;
   if (value !== undefined) el.textContent = text(value);
   return el;
+}
+
+function renderContentCollections() {
+  publicContentEl.replaceChildren();
+
+  for (const collection of state.collections) {
+    const panel = makeElement('article', 'service-panel');
+    panel.append(makeElement('p', 'eyebrow service-eyebrow', collection.eyebrow));
+    panel.append(makeElement('h2', 'service-title', collection.title));
+    panel.append(makeElement('p', 'service-summary', collection.summary));
+
+    if (Array.isArray(collection.highlights) && collection.highlights.length) {
+      const highlights = makeElement('div', 'service-highlights');
+      for (const highlight of collection.highlights) {
+        highlights.append(makeElement('span', 'service-highlight', highlight));
+      }
+      panel.append(highlights);
+    }
+
+    const list = makeElement('div', 'service-list');
+    for (const service of collection.services || []) {
+      const item = makeElement('section', 'service-item');
+      item.append(makeElement('h3', '', service.name));
+      item.append(makeElement('p', '', service.description));
+      list.append(item);
+    }
+    panel.append(list);
+    publicContentEl.append(panel);
+  }
 }
 
 function render() {
@@ -71,6 +103,21 @@ function populateTypes() {
   }
 }
 
+async function loadPublicContent() {
+  try {
+    const response = await fetch(CONTENT_URL, { method: 'GET', credentials: 'omit', cache: 'no-store' });
+    if (!response.ok) throw new Error(`Content returned ${response.status}`);
+    const data = await response.json();
+    state.collections = Array.isArray(data.collections) ? data.collections : [];
+    renderContentCollections();
+    contentErrorEl.hidden = true;
+  } catch (error) {
+    console.error('Approved public content failed to load.');
+    publicContentEl.replaceChildren();
+    contentErrorEl.hidden = false;
+  }
+}
+
 async function loadRepository() {
   try {
     const response = await fetch(FEED_URL, { method: 'GET', mode: 'cors', credentials: 'omit', cache: 'no-store' });
@@ -94,4 +141,5 @@ async function loadRepository() {
 
 searchEl.addEventListener('input', render);
 typeEl.addEventListener('change', render);
+void loadPublicContent();
 void loadRepository();

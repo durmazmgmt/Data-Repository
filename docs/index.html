@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="referrer" content="no-referrer" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://charming-lapwing-610.eu-west-1.convex.site; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src 'self' https://charming-lapwing-610.eu-west-1.convex.site; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'" />
   <title>Durmaz Public Repository</title>
-  <meta name="description" content="Read-only public repository bridge for Durmaz websites and Google Sites." />
+  <meta name="description" content="Read-only public repository bridge for Durmaz websites, Google Sites, and approved public service content." />
   <link rel="stylesheet" href="./styles.css" />
 </head>
 <body>
@@ -15,43 +15,68 @@
       <div>
         <p class="eyebrow">Durmaz Repository · Public View</p>
         <h1>Shared Website Repository</h1>
-        <p class="lede">A read-only view of records explicitly approved for public website use. Internal records, source documents, credentials, and administrative metadata are not exposed here.</p>
+        <p class="lede">A read-only view of records and service content explicitly approved for public website use. Internal records, source documents, credentials, client information, and administrative metadata are not exposed here.</p>
       </div>
       <div class="status" id="connectionStatus" aria-live="polite">Connecting…</div>
     </header>
 
-    <section class="toolbar" aria-label="Repository filters">
-      <label>
-        <span>Search</span>
-        <input id="search" type="search" autocomplete="off" placeholder="Search public records" />
-      </label>
-      <label>
-        <span>Type</span>
-        <select id="typeFilter">
-          <option value="all">All types</option>
-        </select>
-      </label>
+    <section class="content-section" aria-labelledby="servicesHeading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Approved public content</p>
+          <h2 id="servicesHeading">Services & resources</h2>
+        </div>
+        <p>Public-facing content consolidated from approved website sources. Operational portals and restricted application data remain in authenticated systems.</p>
+      </div>
+      <div id="publicContent" class="content-grid" aria-label="Approved public service content"></div>
+      <section id="contentError" class="empty error" hidden>
+        <h2>Public service content unavailable</h2>
+        <p>The approved content package could not be loaded. No internal fallback content is stored in this page.</p>
+      </section>
     </section>
 
-    <section class="summary" aria-live="polite">
-      <strong id="recordCount">0</strong> public records
-      <span id="lastUpdated"></span>
-    </section>
+    <section class="repository-section" aria-labelledby="repositoryHeading">
+      <div class="section-heading compact-heading">
+        <div>
+          <p class="eyebrow">Controlled public records</p>
+          <h2 id="repositoryHeading">Repository directory</h2>
+        </div>
+        <p>Search the sanitized public record set maintained by the central repository.</p>
+      </div>
 
-    <section id="records" class="grid" aria-label="Public repository records"></section>
+      <section class="toolbar" aria-label="Repository filters">
+        <label>
+          <span>Search</span>
+          <input id="search" type="search" autocomplete="off" placeholder="Search public records" />
+        </label>
+        <label>
+          <span>Type</span>
+          <select id="typeFilter">
+            <option value="all">All types</option>
+          </select>
+        </label>
+      </section>
 
-    <section id="emptyState" class="empty" hidden>
-      <h2>No matching public records</h2>
-      <p>Try another search or filter.</p>
-    </section>
+      <section class="summary" aria-live="polite">
+        <strong id="recordCount">0</strong> public records
+        <span id="lastUpdated"></span>
+      </section>
 
-    <section id="errorState" class="empty error" hidden>
-      <h2>Repository feed unavailable</h2>
-      <p>The public feed could not be loaded. No private fallback data is stored in this page.</p>
+      <section id="records" class="grid" aria-label="Public repository records"></section>
+
+      <section id="emptyState" class="empty" hidden>
+        <h2>No matching public records</h2>
+        <p>Try another search or filter.</p>
+      </section>
+
+      <section id="errorState" class="empty error" hidden>
+        <h2>Repository feed unavailable</h2>
+        <p>The public feed could not be loaded. No private fallback data is stored in this page.</p>
+      </section>
     </section>
 
     <footer>
-      <p>Public integration surface only · HTTPS read-only feed · No administrative credentials stored in GitHub or Google Sites.</p>
+      <p>Public integration surface only · HTTPS read-only feeds · No administrative credentials stored in GitHub, Google Sites, or the browser bridge.</p>
     </footer>
   </main>
   <script src="./app.js" defer></script>
