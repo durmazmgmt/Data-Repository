@@ -5,7 +5,6 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
-      - '.github/workflows/deploy-google-sites-bridge.yml'
   workflow_dispatch:
 
 permissions:
@@ -15,7 +14,7 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -23,15 +22,31 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Configure Pages
+        uses: actions/checkout@v6
+
+      # First-time bootstrap can be fully automated by creating an encrypted
+      # repository secret named PAGES_ADMIN_TOKEN. Use a fine-grained token
+      # limited to this repository with Administration: write and Pages: write.
+      # After Pages exists, this secret is not required for normal deployments.
+      - name: Enable and configure Pages (secure bootstrap)
+        if: ${{ secrets.PAGES_ADMIN_TOKEN != '' }}
         uses: actions/configure-pages@v5
+        with:
+          token: ${{ secrets.PAGES_ADMIN_TOKEN }}
+          enablement: true
+
+      - name: Configure existing Pages site
+        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        uses: actions/configure-pages@v5
+
       - name: Upload bridge artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./docs
+
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
