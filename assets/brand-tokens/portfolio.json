@@ -1,0 +1,17 @@
+{
+  "version": "1.0.0",
+  "tokenSource": "approved visual direction from supplied logo artwork; exact source-image sampling pending binary media transfer",
+  "logoAssetPolicy": "Stable asset keys are public-safe. Image URLs remain absent until each approved logo binary is intentionally published to controlled media storage.",
+  "brands": {
+    "durmaz-holdings": {"logoAssetKey":"logo-durmaz-holdings-primary","logoAssetStatus":"pending-media-ingestion","primary":"#0B0B0B","secondary":"#C9A253","accent":"#E1BD6A","surface":"#F8F6F1","text":"#111111","muted":"#6B655C"},
+    "durmaz-management": {"logoAssetKey":"logo-durmaz-management-primary","logoAssetStatus":"pending-media-ingestion","primary":"#041B3D","secondary":"#C69A45","accent":"#E0B965","surface":"#F7F5F0","text":"#0B1627","muted":"#637083"},
+    "efg-accounting-group": {"logoAssetKey":"logo-efg-accounting-group-primary","logoAssetStatus":"pending-media-ingestion","primary":"#031C3F","secondary":"#C79A45","accent":"#DDB45D","surface":"#F8F6F1","text":"#0C1625","muted":"#657084"},
+    "mobile-notary-hub": {"logoAssetKey":"logo-mobile-notary-hub-primary","logoAssetStatus":"pending-media-ingestion","primary":"#021B3F","secondary":"#C89D4B","accent":"#E1BA65","surface":"#FBF7EC","text":"#0A1627","muted":"#6F7782"},
+    "durmaz-learning-academy": {"logoAssetKey":"logo-durmaz-learning-academy-primary","logoAssetStatus":"pending-media-ingestion","primary":"#051E42","secondary":"#D0A54D","accent":"#E2B965","surface":"#F8F6EF","text":"#0B172A","muted":"#687184"},
+    "tax-season-support": {"logoAssetKey":"logo-tax-season-support-primary","logoAssetStatus":"pending-media-ingestion","primary":"#0050A8","secondary":"#4AB958","accent":"#74C96A","surface":"#F6FAFD","text":"#132033","muted":"#6A7788"},
+    "addiction-skin-care": {"logoAssetKey":"logo-addiction-skin-care-primary","logoAssetStatus":"pending-media-ingestion","primary":"#1D2714","secondary":"#B77D6D","accent":"#D1A493","surface":"#F7F3ED","text":"#20231D","muted":"#72766B"},
+    "durmaz-home-services": {"logoAssetKey":"logo-durmaz-home-services-primary","logoAssetStatus":"pending-media-ingestion","primary":"#041D42","secondary":"#C99C49","accent":"#E0B85E","surface":"#F8F6F0","text":"#101A2A","muted":"#667182"},
+    "maid-of-all-trades": {"logoAssetKey":"logo-maid-of-all-trades-primary","logoAssetStatus":"pending-media-ingestion","primary":"#1D3406","secondary":"#C8A04B","accent":"#526B1D","surface":"#F7F7F1","text":"#18200F","muted":"#6A745D"},
+    "chic-chicago-homes": {"logoAssetKey":"logo-chic-chicago-homes-primary","logoAssetStatus":"pending-media-ingestion","primary":"#111111","secondary":"#C9A04C","accent":"#E0B965","surface":"#F7F4ED","text":"#131313","muted":"#6C675E"}
+  }
+}
