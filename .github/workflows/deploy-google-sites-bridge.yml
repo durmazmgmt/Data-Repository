@@ -31,6 +31,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
+      - name: Run public content contract test
+        run: node docs/content.test.mjs
+
       - name: Validate bridge package
         shell: bash
         run: |
@@ -38,6 +41,7 @@ jobs:
           test -f docs/index.html
           test -f docs/styles.css
           test -f docs/app.js
+          test -f docs/content.json
           grep -Fq "$PUBLIC_FEED" docs/app.js
           echo "Bridge package files and configured feed are present."
 
@@ -86,6 +90,7 @@ jobs:
           {
             echo "## Google Sites Bridge"
             echo
+            echo "- Public content contract: complete"
             echo "- Bridge package validation: complete"
             echo "- Public feed security validation: complete"
             if [[ "${{ steps.deployment.outcome }}" == "success" ]]; then
