@@ -1,112 +1,148 @@
 {
-  "version": "1.0.0",
-  "sitePurpose": "Public-facing Durmaz portfolio and service information assembled from approved cross-platform sources.",
-  "defaultClassification": "public-only",
-  "pages": [
+  "version": "2.0.0",
+  "purpose": "Deterministic public-only map from canonical Durmaz brand/site keys to Google Sites bridge views.",
+  "defaultAudience": "public",
+  "sites": [
     {
-      "page": "Home",
-      "sources": [
-        "Macaly/Convex sanitized public feed",
-        "GitHub builder registry"
-      ],
-      "content": [
-        "portfolio overview",
-        "approved entity names",
-        "public service navigation",
-        "contact and intake links"
+      "siteKey": "durmaz-holdings",
+      "brandKey": "durmaz-holdings",
+      "displayName": "Durmaz Holdings LLC",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"portfolio","component":"portfolio","view":"portfolio"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     },
     {
-      "page": "Business & Management Services",
-      "sources": [
-        "Lovable: Durmaz Management"
-      ],
-      "content": [
-        "Practical Business Consulting for Sustainable Growth",
-        "Operations & Systems",
-        "Financial Clarity",
-        "Strategy & Planning",
-        "Project & Implementation Support",
-        "Business Readiness",
-        "Advisory Retainer"
+      "siteKey": "durmaz-management",
+      "brandKey": "durmaz-management",
+      "displayName": "Durmaz Management LLC DBA Durmaz Mgmt",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     },
     {
-      "page": "Tax Services",
-      "sources": [
-        "Lovable: TaxSeasonSupport",
-        "Replit: Tax Agent Pro after editorial review"
-      ],
-      "content": [
-        "individual tax returns",
-        "small business tax support",
-        "IRS and state notice support",
-        "amended returns",
-        "bookkeeping cleanup",
-        "tax planning",
-        "general educational tax-resource concepts"
-      ],
-      "restrictions": [
-        "Do not expose tax-client data",
-        "Do not publish prototype security/compliance claims unless independently validated",
-        "Do not embed Replit admin, research-history, strategy, or case-management content"
+      "siteKey": "efg-accounting-group",
+      "brandKey": "efg-accounting-group",
+      "displayName": "EFG Accounting Group",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     },
     {
-      "page": "Notary Services",
-      "sources": [
-        "Lovable: Durmaz Notary - Mobile Notary Hub"
-      ],
-      "content": [
-        "mobile notary",
-        "remote online notarization",
-        "general notary work",
-        "loan signing services",
-        "estate-planning document notarization",
-        "real-estate closing support",
-        "Chicago and Cook County service-area messaging"
+      "siteKey": "mobile-notary-hub",
+      "brandKey": "mobile-notary-hub",
+      "displayName": "Durmaz Notary Services DBA MobileNotaryHub",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"faq","component":"faq","view":"faq"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     },
     {
-      "page": "Learning & Resources",
-      "sources": [
-        "approved public repository records",
-        "approved Google Drive resources",
-        "future Durmaz Learning Academy public feed"
-      ],
-      "content": [
-        "educational resources",
-        "public guides",
-        "public templates",
-        "course and certification information approved for external audiences"
+      "siteKey": "durmaz-learning-academy",
+      "brandKey": "durmaz-learning-academy",
+      "displayName": "Durmaz Learning Academy",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"courses","component":"courses","view":"courses"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     },
     {
-      "page": "Client Access",
-      "sources": [
-        "authenticated external systems only"
-      ],
-      "content": [
-        "deep links to approved client portals"
-      ],
-      "restrictions": [
-        "No client records stored in Google Sites",
-        "No admin interface embedded",
-        "No credentials or tokens in page HTML"
+      "siteKey": "tax-season-support",
+      "brandKey": "tax-season-support",
+      "displayName": "TaxSeasonSupport",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"faq","component":"faq","view":"faq"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
+      ]
+    },
+    {
+      "siteKey": "addiction-skin-care",
+      "brandKey": "addiction-skin-care",
+      "displayName": "Addiction Skin Care",
+      "audience": "public",
+      "publicationStatus": "active",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"faq","component":"faq","view":"faq"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
+      ]
+    },
+    {
+      "siteKey": "durmaz-home-services",
+      "brandKey": "durmaz-home-services",
+      "displayName": "Durmaz Home Services",
+      "audience": "public",
+      "publicationStatus": "prepared",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
+      ]
+    },
+    {
+      "siteKey": "maid-of-all-trades",
+      "brandKey": "maid-of-all-trades",
+      "displayName": "Maid of All Trades",
+      "audience": "public",
+      "publicationStatus": "prepared",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
+      ]
+    },
+    {
+      "siteKey": "chic-chicago-homes",
+      "brandKey": "chic-chicago-homes",
+      "displayName": "Chic Chicago Homes",
+      "audience": "public",
+      "publicationStatus": "prepared",
+      "pages": [
+        {"pageRole":"home","component":"hero","view":"hero"},
+        {"pageRole":"services","component":"services","view":"services"},
+        {"pageRole":"resources","component":"resources","view":"resources"},
+        {"pageRole":"contact","component":"contact","view":"contact"}
       ]
     }
   ],
+  "publicationPolicy": {
+    "active": "Canonical public entity/site record exists and the bridge may render approved public data.",
+    "prepared": "Brand mapping and presentation shell are prepared, but no public destination is represented as live until canonical public site/service content is approved."
+  },
   "neverPublish": [
-    "Base44 Client records",
-    "Base44 Document or TaxReturnProfile records",
-    "Replit strategy section",
-    "Replit admin operations",
-    "Lovable admin portal content",
+    "client records",
+    "tax-return profiles",
+    "admin operations",
     "private Google Drive files",
     "audit logs",
-    "internal source URLs",
     "credentials",
-    "tokens",
     "tax identifiers",
     "client financial data"
   ]
