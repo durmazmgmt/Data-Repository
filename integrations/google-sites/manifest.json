@@ -1,13 +1,22 @@
 {
-  "integrationVersion": "1.1.0",
+  "integrationVersion": "2.0.0",
   "name": "Durmaz Google Sites Repository Bridge",
   "repository": "durmazmgmt/Data-Repository",
   "publicFeed": "https://charming-lapwing-610.eu-west-1.convex.site/repository/public",
+  "publicSnapshot": "public/repository.json",
+  "brandRegistry": "content/brands/registry.json",
+  "brandTokens": "assets/brand-tokens/portfolio.json",
+  "contentMap": "integrations/google-sites/content-map.json",
   "bridgeSourcePath": "docs/",
   "expectedPagesUrl": "https://durmazmgmt.github.io/Data-Repository/",
+  "fallbackHosting": {
+    "provider": "Railway",
+    "project": "Durmaz Web Integration Bridge",
+    "status": "project-created-service-not-yet-deployed"
+  },
   "dataPolicy": {
     "transport": "HTTPS only",
-    "direction": "read-only from public feed and sanitized registries to presentation layers",
+    "direction": "read-only from canonical public feed and sanitized registries to presentation layers",
     "allowedVisibility": "public",
     "excludedFields": [
       "sourceUrl",
@@ -25,16 +34,14 @@
   },
   "systems": {
     "macalyConvex": "authoritative structured repository and authorization boundary",
-    "github": "sanitized public bridge source, integration manifests, version control, and deployment artifacts",
-    "googleSites": "external presentation layer for approved public content",
+    "github": "sanitized public bridge source, integration manifests, version control, validation, and deployment artifacts",
+    "googleSites": "presentation consumer for approved public content",
     "googleDrive": "protected source/reference document storage with independent sharing controls",
-    "sharePointInternal": "planned protected operational workspace; provisioning pending SharePoint Online licensing",
-    "sharePointExternal": "planned curated client-facing communication experience; provisioning pending SharePoint Online licensing",
-    "lovable": "source platform for approved Durmaz Management, TaxSeasonSupport, and MobileNotaryHub public content plus internal portal concepts",
-    "base44": "source platform for TaxNavigator structured tax-operations models; internal-only by default",
-    "replit": "source platform for tax application prototypes; public reuse only after content classification and editorial review"
+    "sharePointStaff": "protected operational workspace package; live provisioning pending SharePoint Online licensing",
+    "sharePointClient": "curated authenticated collaboration package; live provisioning pending SharePoint Online licensing",
+    "lovable": "read-only source reference for verified reusable public patterns",
+    "base44": "read-only source reference; sensitive tax-operations data excluded from public distribution",
+    "replit": "read-only source reference; reuse requires verification and editorial review"
   },
-  "contentRegistry": "integrations/builders/registry.json",
-  "sharePointBlueprint": "integrations/sharepoint/site-blueprint.json",
-  "publicationRule": "Google Sites may display only content explicitly classified for public reuse. Internal/admin/client features are represented only as authenticated deep links or omitted entirely."
+  "publicationRule": "Google Sites may display only public canonical records and prepared brand shells. Prepared destinations are never represented as live until approved content exists."
 }
