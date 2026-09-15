@@ -22,24 +22,26 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
+    env:
+      PAGES_ADMIN_TOKEN: ${{ secrets.PAGES_ADMIN_TOKEN }}
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # First-time bootstrap can be fully automated by creating an encrypted
-      # repository secret named PAGES_ADMIN_TOKEN. Use a fine-grained token
-      # limited to this repository with Administration: write and Pages: write.
-      # After Pages exists, this secret is not required for normal deployments.
+      # Optional first-time bootstrap. The repository secret PAGES_ADMIN_TOKEN
+      # must be a fine-grained token limited to this repository with
+      # Administration: write and Pages: write. Normal deployments do not
+      # require this secret after Pages has been enabled once.
       - name: Enable and configure Pages (secure bootstrap)
-        if: ${{ secrets.PAGES_ADMIN_TOKEN != '' }}
+        if: ${{ env.PAGES_ADMIN_TOKEN != '' }}
         uses: actions/configure-pages@v5
         with:
-          token: ${{ secrets.PAGES_ADMIN_TOKEN }}
+          token: ${{ env.PAGES_ADMIN_TOKEN }}
           enablement: true
 
       - name: Configure existing Pages site
-        if: ${{ secrets.PAGES_ADMIN_TOKEN == '' }}
+        if: ${{ env.PAGES_ADMIN_TOKEN == '' }}
         uses: actions/configure-pages@v5
 
       - name: Upload bridge artifact
