@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durmazmgmt.github.io/Data-Repository/schemas/brand.schema.json",
+  "title": "Durmaz Public Brand Registry",
+  "type": "object",
+  "required": ["version", "status", "brands"],
+  "properties": {
+    "version": {"type":"string"},
+    "status": {"type":"string"},
+    "brands": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["key","legalName","displayName","tagline","primaryLogoAssetKey","palette","typography","buttonStyle","cardStyle","imageStyle","logoBackgroundRule","voice","status"],
+        "properties": {
+          "key": {"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+          "legalName": {"type":"string","minLength":1},
+          "displayName": {"type":"string","minLength":1},
+          "tagline": {"type":"string"},
+          "primaryLogoAssetKey": {"type":"string","pattern":"^logo-[a-z0-9-]+-primary$"},
+          "palette": {
+            "type":"object",
+            "additionalProperties": false,
+            "required":["primary","secondary","accent","surface","text","muted"],
+            "properties": {
+              "primary":{"$ref":"#/$defs/hex"},
+              "secondary":{"$ref":"#/$defs/hex"},
+              "accent":{"$ref":"#/$defs/hex"},
+              "surface":{"$ref":"#/$defs/hex"},
+              "text":{"$ref":"#/$defs/hex"},
+              "muted":{"$ref":"#/$defs/hex"}
+            }
+          },
+          "typography": {
+            "type":"object",
+            "required":["heading","body","fallback"],
+            "properties":{"heading":{"type":"string"},"body":{"type":"string"},"fallback":{"type":"string"}}
+          },
+          "buttonStyle":{"type":"string"},
+          "cardStyle":{"type":"string"},
+          "imageStyle":{"type":"string"},
+          "logoBackgroundRule":{"type":"string"},
+          "voice":{"type":"string"},
+          "status":{"enum":["approved","draft","archived"]}
+        }
+      }
+    }
+  },
+  "$defs": {
+    "hex": {"type":"string","pattern":"^#[0-9A-Fa-f]{6}$"}
+  }
+}

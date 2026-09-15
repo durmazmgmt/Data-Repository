@@ -1,0 +1,69 @@
+name: Validate Repository Content Safety
+
+on:
+  push:
+    branches:
+      - main
+      - implementation/cross-platform-content-architecture
+    paths:
+      - 'content/**'
+      - 'assets/**'
+      - 'manifests/**'
+      - 'integrations/**'
+      - 'public/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-repository-content.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'content/**'
+      - 'assets/**'
+      - 'manifests/**'
+      - 'integrations/**'
+      - 'public/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - '.github/workflows/validate-repository-content.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  content-safety:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Validate brand registry
+        run: node scripts/validate-brand-registry.mjs
+
+      - name: Test public snapshot contract
+        run: node --test scripts/build-public-snapshot.test.mjs
+
+      - name: Validate sanitized distribution files
+        run: node scripts/validate-public-content.mjs
+
+      - name: Validate live public feed
+        shell: bash
+        run: |
+          node - <<'NODE'
+          const endpoint = 'https://charming-lapwing-610.eu-west-1.convex.site/repository/public'
+          const blocked = new Set(['sourceUrl','sourceSystem','contentJson','ssn','ein','token','secret','password','privateKey'])
+          const response = await fetch(endpoint, { headers: { accept: 'application/json' } })
+          if (!response.ok) throw new Error(`public feed HTTP ${response.status}`)
+          const payload = await response.json()
+          const rows = Array.isArray(payload) ? payload : payload.items
+          if (!Array.isArray(rows) || rows.length < 1) throw new Error('public feed is empty or malformed')
+          const keys = new Set()
+          for (const row of rows) {
+            if (keys.has(row.key)) throw new Error(`duplicate key: ${row.key}`)
+            keys.add(row.key)
+            for (const key of Object.keys(row)) {
+              if (blocked.has(key)) throw new Error(`blocked public field: ${key}`)
+            }
+          }
+          console.log(`Live public feed safe: ${rows.length} record(s).`)
+          NODE

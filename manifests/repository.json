@@ -1,0 +1,40 @@
+{
+  "version": "1.1.0",
+  "name": "Durmaz Public Website Content Distribution",
+  "canonicalFeed": "https://charming-lapwing-610.eu-west-1.convex.site/repository/public",
+  "snapshot": "public/repository.json",
+  "snapshotVersion": "1.0.0",
+  "sourceUpdatedAtMax": 1789502228937,
+  "repository": "durmazmgmt/Data-Repository",
+  "branch": "implementation/cross-platform-content-architecture",
+  "classification": "public-sanitized",
+  "readOnly": true,
+  "collections": {
+    "entities": "content/entities/index.json",
+    "sites": "content/sites/index.json",
+    "services": "content/services/index.json",
+    "courses": "content/courses/index.json",
+    "resources": "content/resources/index.json",
+    "brands": "content/brands/registry.json"
+  },
+  "schemas": {
+    "publicRecord": "schemas/public-record.schema.json",
+    "brandRegistry": "schemas/brand.schema.json"
+  },
+  "brandTokens": "assets/brand-tokens/portfolio.json",
+  "targets": [
+    "google-sites",
+    "chatgpt-sites",
+    "sharepoint-client-experience",
+    "github-static-bridge",
+    "railway-static-bridge"
+  ],
+  "policy": {
+    "allowedAudience": "public",
+    "writesFromPresentationLayers": false,
+    "privateDocumentsIncluded": false,
+    "clientRecordsIncluded": false,
+    "taxIdentifiersIncluded": false,
+    "credentialsIncluded": false
+  }
+}

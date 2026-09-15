@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "status": "implementation-ready-pending-sharepoint-online-license",
   "tenantCheck": {
     "result": "blocked",
@@ -7,7 +7,7 @@
     "provisioningAllowed": false
   },
   "architecture": {
-    "internal": {
+    "staffExperience": {
       "siteType": "team-site-or-private-communication-hub",
       "workingName": "Durmaz Operations Hub",
       "audience": "owners, administrators, staff, approved contractors",
@@ -73,11 +73,11 @@
         "clientDataInGoogleSites": false
       }
     },
-    "external": {
+    "clientExperience": {
       "siteType": "communication-site",
       "workingName": "Durmaz Services & Resources",
       "audience": "clients, prospects, partners, and approved external viewers",
-      "purpose": "Curated client-facing experience that reuses approved public service content and resources without exposing internal systems.",
+      "purpose": "Curated client-facing experience that reuses approved public service content and resources without exposing protected systems.",
       "navigation": [
         "Home",
         "Business & Management Services",
@@ -116,8 +116,8 @@
     "Builder platforms remain authoritative for their application code and native runtime state.",
     "Macaly/Convex remains the central structured repository and authorization boundary for controlled repository records.",
     "GitHub stores sanitized public manifests, bridge code, versioned documentation, and deployment artifacts.",
-    "Internal SharePoint receives protected operational references and approved source documents once SharePoint Online is licensed.",
-    "External SharePoint and Google Sites consume only approved public content and read-only feeds.",
+    "Staff SharePoint receives protected operational references and approved source documents once SharePoint Online is licensed.",
+    "Client SharePoint and Google Sites consume only approved public content and read-only feeds.",
     "Google Drive remains a protected source/reference document layer unless a document is independently approved for external publication."
   ]
 }

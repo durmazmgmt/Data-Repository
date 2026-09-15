@@ -1,0 +1,69 @@
+name: Validate Cross-Platform Content
+
+on:
+  push:
+    branches:
+      - implementation/cross-platform-content-architecture
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate brand registry
+        run: node scripts/validate-brand-registry.mjs
+
+      - name: Test public snapshot contract
+        run: node --test scripts/build-public-snapshot.test.mjs
+
+      - name: Validate public distribution contract
+        run: node scripts/validate-public-content.mjs
+
+      - name: Validate Google Sites canonical map
+        run: node scripts/validate-google-sites-map.mjs
+
+      - name: Validate JSON files
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          paths = [Path('content'),Path('assets/brand-tokens'),Path('schemas'),Path('integrations'),Path('manifests'),Path('public')]
+          count = 0
+          for root in paths:
+              if not root.exists(): continue
+              for path in root.rglob('*.json'):
+                  json.loads(path.read_text(encoding='utf-8'))
+                  count += 1
+          print(f'Validated {count} JSON files.')
+          PY
+
+      - name: Scan public repository for forbidden secret patterns
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          patterns = [r"BEGIN " + r"(?:RSA|OPENSSH|EC)" + r" PRIVATE KEY","sk-" + "proj-","CONVEX_" + "DEPLOY_KEY=","SECRET_" + "KEY=","RAILWAY_" + "TOKEN=","RAILWAY_API_" + "TOKEN="]
+          compiled = [re.compile(pattern) for pattern in patterns]
+          matches = []
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or '.git' in path.parts or path.suffix.lower() == '.md': continue
+              try: text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError: continue
+              if any(pattern.search(text) for pattern in compiled): matches.append(str(path))
+          if matches:
+              print('Forbidden secret-like content detected in:')
+              for match in matches: print(match)
+              raise SystemExit(1)
+          print('No forbidden secret patterns detected.')
+          PY

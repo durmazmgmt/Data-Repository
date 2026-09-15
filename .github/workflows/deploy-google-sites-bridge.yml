@@ -5,6 +5,13 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - 'content/**'
+      - 'assets/brand-tokens/**'
+      - 'public/**'
+      - 'manifests/**'
+      - 'schemas/**'
+      - 'scripts/**'
+      - 'integrations/google-sites/**'
       - '.github/workflows/deploy-google-sites-bridge.yml'
   workflow_dispatch:
 
@@ -31,7 +38,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
 
-      - name: Run public content contract test
+      - name: Test public snapshot contract
+        run: node --test scripts/build-public-snapshot.test.mjs
+
+      - name: Validate canonical public distribution
+        run: node scripts/validate-public-content.mjs
+
+      - name: Run bridge content contract test
         run: node docs/content.test.mjs
 
       - name: Validate bridge package
@@ -42,8 +55,9 @@ jobs:
           test -f docs/styles.css
           test -f docs/app.js
           test -f docs/content.json
+          test -f public/repository.json
           grep -Fq "$PUBLIC_FEED" docs/app.js
-          echo "Bridge package files and configured feed are present."
+          echo "Bridge package and canonical snapshot are present."
 
       - name: Validate public feed safety
         shell: bash
@@ -53,7 +67,7 @@ jobs:
           count="$(jq -r '.count' <<<"$payload")"
           test "$count" -ge 1
           if jq -e '.items[] | has("sourceUrl") or has("contentJson") or has("sourceSystem")' <<<"$payload" >/dev/null; then
-            echo "Sensitive/internal fields were found in the public feed." >&2
+            echo "Sensitive or protected fields were found in the public feed." >&2
             exit 1
           fi
           echo "Public feed validated with $count record(s) and no blocked fields."
@@ -90,7 +104,8 @@ jobs:
           {
             echo "## Google Sites Bridge"
             echo
-            echo "- Public content contract: complete"
+            echo "- Canonical public distribution validation: complete"
+            echo "- Public snapshot contract: complete"
             echo "- Bridge package validation: complete"
             echo "- Public feed security validation: complete"
             if [[ "${{ steps.deployment.outcome }}" == "success" ]]; then

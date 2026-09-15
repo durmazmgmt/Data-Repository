@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "items": [
+    {
+      "key": "mobile-notary-hub",
+      "name": "Durmaz Notary Services DBA MobileNotaryHub",
+      "recordType": "site",
+      "summary": "Mobile, remote-online, and signing-agent notary services platform.",
+      "status": "approved",
+      "tags": ["notary", "website", "service"],
+      "version": "1.0.0"
+    },
+    {
+      "key": "tax-season-support",
+      "name": "TaxSeasonSupport",
+      "recordType": "site",
+      "summary": "Tax support service and client-facing website record.",
+      "status": "approved",
+      "tags": ["tax", "website", "service"],
+      "version": "1.0.0"
+    },
+    {
+      "key": "durmaz-learning-academy",
+      "name": "Durmaz Learning Academy",
+      "recordType": "site",
+      "summary": "Professional education, continuing education, and course repository platform.",
+      "status": "approved",
+      "tags": ["education", "courses", "website"],
+      "version": "1.0.0"
+    },
+    {
+      "key": "addiction-skin-care",
+      "name": "Addiction Skin Care",
+      "recordType": "site",
+      "summary": "Skincare guides, recipes, product resources, and partner content platform.",
+      "status": "approved",
+      "tags": ["skincare", "guides", "website"],
+      "version": "1.0.0"
+    }
+  ]
+}
