@@ -28,24 +28,19 @@ jobs:
       - name: Validate public distribution contract
         run: node scripts/validate-public-content.mjs
 
+      - name: Validate Google Sites canonical map
+        run: node scripts/validate-google-sites-map.mjs
+
       - name: Validate JSON files
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          paths = [
-              Path('content'),
-              Path('assets/brand-tokens'),
-              Path('schemas'),
-              Path('integrations'),
-              Path('manifests'),
-              Path('public'),
-          ]
+          paths = [Path('content'),Path('assets/brand-tokens'),Path('schemas'),Path('integrations'),Path('manifests'),Path('public')]
           count = 0
           for root in paths:
-              if not root.exists():
-                  continue
+              if not root.exists(): continue
               for path in root.rglob('*.json'):
                   json.loads(path.read_text(encoding='utf-8'))
                   count += 1
@@ -58,32 +53,17 @@ jobs:
           python - <<'PY'
           from pathlib import Path
           import re
-
-          patterns = [
-              r"BEGIN " + r"(?:RSA|OPENSSH|EC)" + r" PRIVATE KEY",
-              "sk-" + "proj-",
-              "CONVEX_" + "DEPLOY_KEY=",
-              "SECRET_" + "KEY=",
-              "RAILWAY_" + "TOKEN=",
-              "RAILWAY_API_" + "TOKEN=",
-          ]
+          patterns = [r"BEGIN " + r"(?:RSA|OPENSSH|EC)" + r" PRIVATE KEY","sk-" + "proj-","CONVEX_" + "DEPLOY_KEY=","SECRET_" + "KEY=","RAILWAY_" + "TOKEN=","RAILWAY_API_" + "TOKEN="]
           compiled = [re.compile(pattern) for pattern in patterns]
           matches = []
           for path in Path('.').rglob('*'):
-              if not path.is_file() or '.git' in path.parts or path.suffix.lower() == '.md':
-                  continue
-              try:
-                  text = path.read_text(encoding='utf-8')
-              except UnicodeDecodeError:
-                  continue
-              for pattern in compiled:
-                  if pattern.search(text):
-                      matches.append(str(path))
-                      break
+              if not path.is_file() or '.git' in path.parts or path.suffix.lower() == '.md': continue
+              try: text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError: continue
+              if any(pattern.search(text) for pattern in compiled): matches.append(str(path))
           if matches:
               print('Forbidden secret-like content detected in:')
-              for match in matches:
-                  print(match)
+              for match in matches: print(match)
               raise SystemExit(1)
           print('No forbidden secret patterns detected.')
           PY
