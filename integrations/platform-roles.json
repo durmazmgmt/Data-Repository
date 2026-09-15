@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-09-15",
+  "principles": {
+    "singleSourceOfTruth": "Macaly/Convex remains the canonical operational content and protected-data layer.",
+    "publicSafety": "Only sanitized, explicitly approved public records may flow into GitHub or public presentation surfaces.",
+    "avoidDuplication": "New tools must serve a distinct operational role and must not become a competing content database."
+  },
+  "platforms": [
+    {
+      "key": "macaly-convex",
+      "category": "canonical-data",
+      "role": "Canonical operational content, protected data, and backend services",
+      "authority": "system-of-record",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "github",
+      "category": "versioned-distribution",
+      "role": "Version control, sanitized public distribution, schemas, manifests, and deployment automation",
+      "authority": "distribution-record",
+      "connectionState": "verified-for-durmazmgmt-data-repository"
+    },
+    {
+      "key": "vercel",
+      "category": "frontend-runtime",
+      "role": "Production and preview deployment for interactive frontend surfaces",
+      "authority": "runtime",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "railway",
+      "category": "service-runtime",
+      "role": "Backend services, workers, integration bridges, and failover where Vercel or GitHub Pages is unsuitable",
+      "authority": "runtime",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "google-sites",
+      "category": "presentation",
+      "role": "Public presentation surface consuming approved content",
+      "authority": "non-canonical",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "chatgpt-sites",
+      "category": "presentation",
+      "role": "Interactive public presentation and prototype surface",
+      "authority": "non-canonical",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "sharepoint",
+      "category": "collaboration",
+      "role": "Internal and external authenticated collaboration",
+      "authority": "non-canonical",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "semrush",
+      "category": "seo",
+      "role": "Keyword strategy, technical visibility, competitor analysis, and search-performance auditing",
+      "authority": "analytics-only",
+      "connectionState": "not-verified"
+    },
+    {
+      "key": "datadog",
+      "category": "observability",
+      "role": "Runtime errors, latency, availability, backend failures, API health, and deployment regressions",
+      "authority": "telemetry-only",
+      "connectionState": "planned"
+    },
+    {
+      "key": "amplitude",
+      "category": "product-analytics",
+      "role": "Privacy-conscious funnels, navigation, CTA, estimator, form, scheduling, resource, and course engagement analytics",
+      "authority": "analytics-only",
+      "connectionState": "planned"
+    },
+    {
+      "key": "figma",
+      "category": "design-governance",
+      "role": "Cross-brand design tokens, reusable components, responsive patterns, and governed visual specifications",
+      "authority": "design-system",
+      "connectionState": "planned"
+    },
+    {
+      "key": "hubspot",
+      "category": "crm",
+      "role": "Optional downstream lead, consultation, inquiry, and follow-up management",
+      "authority": "lead-workflow-only",
+      "connectionState": "conditional"
+    },
+    {
+      "key": "jotform",
+      "category": "forms",
+      "role": "Optional structured applications, intake packets, signatures, and advanced workflows",
+      "authority": "form-workflow-only",
+      "connectionState": "conditional"
+    },
+    {
+      "key": "base44-replit-lovable",
+      "category": "reference-sources",
+      "role": "Read-only reference and extraction sources",
+      "authority": "non-canonical",
+      "connectionState": "not-verified"
+    }
+  ],
+  "excludedAsRedundant": [
+    "supabase",
+    "airtable",
+    "additional-cms",
+    "additional-database"
+  ],
+  "eventFlow": [
+    "Visitor interacts with a presentation surface",
+    "Approved analytics events flow to Amplitude without protected form content",
+    "Operational logs and service health flow to Datadog",
+    "Lead data flows to HubSpot only when CRM automation is activated and consent requirements are satisfied",
+    "Canonical content changes originate in Macaly/Convex",
+    "Sanitized public snapshots and schemas are versioned in GitHub",
+    "Vercel, Railway, Google Sites, ChatGPT Sites, and SharePoint consume only their approved distribution tier"
+  ]
+}
