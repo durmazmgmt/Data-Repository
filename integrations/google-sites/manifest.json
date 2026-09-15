@@ -1,0 +1,21 @@
+{
+  "integrationVersion": "1.0.0",
+  "name": "Durmaz Google Sites Repository Bridge",
+  "repository": "durmazmgmt/Data-Repository",
+  "publicFeed": "https://charming-lapwing-610.eu-west-1.convex.site/repository/public",
+  "bridgeSourcePath": "docs/",
+  "expectedPagesUrl": "https://durmazmgmt.github.io/Data-Repository/",
+  "dataPolicy": {
+    "transport": "HTTPS only",
+    "direction": "read-only from public feed to website",
+    "allowedVisibility": "public",
+    "excludedFields": ["sourceUrl", "sourceSystem", "contentJson", "internal records", "credentials", "tokens", "administrative metadata"],
+    "writeAccess": false
+  },
+  "systems": {
+    "macalyConvex": "authoritative operational repository and authorization boundary",
+    "github": "public sanitized bridge source and version control",
+    "googleSites": "presentation layer embedding the public bridge",
+    "googleDrive": "protected source/reference document storage"
+  }
+}
