@@ -1,5 +1,5 @@
 {
-  "integrationVersion": "1.0.0",
+  "integrationVersion": "1.1.0",
   "name": "Durmaz Google Sites Repository Bridge",
   "repository": "durmazmgmt/Data-Repository",
   "publicFeed": "https://charming-lapwing-610.eu-west-1.convex.site/repository/public",
@@ -7,15 +7,34 @@
   "expectedPagesUrl": "https://durmazmgmt.github.io/Data-Repository/",
   "dataPolicy": {
     "transport": "HTTPS only",
-    "direction": "read-only from public feed to website",
+    "direction": "read-only from public feed and sanitized registries to presentation layers",
     "allowedVisibility": "public",
-    "excludedFields": ["sourceUrl", "sourceSystem", "contentJson", "internal records", "credentials", "tokens", "administrative metadata"],
+    "excludedFields": [
+      "sourceUrl",
+      "sourceSystem",
+      "contentJson",
+      "internal records",
+      "credentials",
+      "tokens",
+      "administrative metadata",
+      "client records",
+      "tax identifiers",
+      "private document links"
+    ],
     "writeAccess": false
   },
   "systems": {
-    "macalyConvex": "authoritative operational repository and authorization boundary",
-    "github": "public sanitized bridge source and version control",
-    "googleSites": "presentation layer embedding the public bridge",
-    "googleDrive": "protected source/reference document storage"
-  }
+    "macalyConvex": "authoritative structured repository and authorization boundary",
+    "github": "sanitized public bridge source, integration manifests, version control, and deployment artifacts",
+    "googleSites": "external presentation layer for approved public content",
+    "googleDrive": "protected source/reference document storage with independent sharing controls",
+    "sharePointInternal": "planned protected operational workspace; provisioning pending SharePoint Online licensing",
+    "sharePointExternal": "planned curated client-facing communication experience; provisioning pending SharePoint Online licensing",
+    "lovable": "source platform for approved Durmaz Management, TaxSeasonSupport, and MobileNotaryHub public content plus internal portal concepts",
+    "base44": "source platform for TaxNavigator structured tax-operations models; internal-only by default",
+    "replit": "source platform for tax application prototypes; public reuse only after content classification and editorial review"
+  },
+  "contentRegistry": "integrations/builders/registry.json",
+  "sharePointBlueprint": "integrations/sharepoint/site-blueprint.json",
+  "publicationRule": "Google Sites may display only content explicitly classified for public reuse. Internal/admin/client features are represented only as authenticated deep links or omitted entirely."
 }
