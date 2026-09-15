@@ -1,0 +1,113 @@
+{
+  "version": "1.0.0",
+  "sitePurpose": "Public-facing Durmaz portfolio and service information assembled from approved cross-platform sources.",
+  "defaultClassification": "public-only",
+  "pages": [
+    {
+      "page": "Home",
+      "sources": [
+        "Macaly/Convex sanitized public feed",
+        "GitHub builder registry"
+      ],
+      "content": [
+        "portfolio overview",
+        "approved entity names",
+        "public service navigation",
+        "contact and intake links"
+      ]
+    },
+    {
+      "page": "Business & Management Services",
+      "sources": [
+        "Lovable: Durmaz Management"
+      ],
+      "content": [
+        "Practical Business Consulting for Sustainable Growth",
+        "Operations & Systems",
+        "Financial Clarity",
+        "Strategy & Planning",
+        "Project & Implementation Support",
+        "Business Readiness",
+        "Advisory Retainer"
+      ]
+    },
+    {
+      "page": "Tax Services",
+      "sources": [
+        "Lovable: TaxSeasonSupport",
+        "Replit: Tax Agent Pro after editorial review"
+      ],
+      "content": [
+        "individual tax returns",
+        "small business tax support",
+        "IRS and state notice support",
+        "amended returns",
+        "bookkeeping cleanup",
+        "tax planning",
+        "general educational tax-resource concepts"
+      ],
+      "restrictions": [
+        "Do not expose tax-client data",
+        "Do not publish prototype security/compliance claims unless independently validated",
+        "Do not embed Replit admin, research-history, strategy, or case-management content"
+      ]
+    },
+    {
+      "page": "Notary Services",
+      "sources": [
+        "Lovable: Durmaz Notary - Mobile Notary Hub"
+      ],
+      "content": [
+        "mobile notary",
+        "remote online notarization",
+        "general notary work",
+        "loan signing services",
+        "estate-planning document notarization",
+        "real-estate closing support",
+        "Chicago and Cook County service-area messaging"
+      ]
+    },
+    {
+      "page": "Learning & Resources",
+      "sources": [
+        "approved public repository records",
+        "approved Google Drive resources",
+        "future Durmaz Learning Academy public feed"
+      ],
+      "content": [
+        "educational resources",
+        "public guides",
+        "public templates",
+        "course and certification information approved for external audiences"
+      ]
+    },
+    {
+      "page": "Client Access",
+      "sources": [
+        "authenticated external systems only"
+      ],
+      "content": [
+        "deep links to approved client portals"
+      ],
+      "restrictions": [
+        "No client records stored in Google Sites",
+        "No admin interface embedded",
+        "No credentials or tokens in page HTML"
+      ]
+    }
+  ],
+  "neverPublish": [
+    "Base44 Client records",
+    "Base44 Document or TaxReturnProfile records",
+    "Replit strategy section",
+    "Replit admin operations",
+    "Lovable admin portal content",
+    "private Google Drive files",
+    "audit logs",
+    "internal source URLs",
+    "credentials",
+    "tokens",
+    "tax identifiers",
+    "client financial data"
+  ]
+}
