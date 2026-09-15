@@ -1,0 +1,175 @@
+{
+  "version": "1.0.0",
+  "purpose": "Sanitized cross-platform source register for Durmaz web properties and application prototypes. This public file contains no credentials, client records, private source URLs, tax identifiers, or administrative secrets.",
+  "classification": "public-sanitized-metadata",
+  "sources": [
+    {
+      "platform": "Lovable",
+      "name": "Durmaz Management",
+      "portfolioEntity": "Durmaz Management LLC DBA Durmaz Mgmt",
+      "status": "published-source",
+      "publicContent": {
+        "positioning": "Practical business consulting for sustainable growth, focused on small businesses in Chicago and Cook County.",
+        "serviceFamilies": [
+          "Operations & Systems",
+          "Financial Clarity",
+          "Strategy & Planning",
+          "Project & Implementation Support",
+          "Business Readiness",
+          "Advisory Retainer"
+        ]
+      },
+      "internalFeatures": [
+        "client portal",
+        "admin portal",
+        "consultation management",
+        "documents",
+        "messages",
+        "tasks",
+        "analytics"
+      ],
+      "publicReuse": true,
+      "internalReuse": true
+    },
+    {
+      "platform": "Lovable",
+      "name": "TaxSeasonSupport",
+      "portfolioEntity": "TaxSeasonSupport",
+      "status": "published-source",
+      "publicContent": {
+        "positioning": "Tax preparation, compliance, notice support, and tax-resource content for individuals and small businesses.",
+        "serviceFamilies": [
+          "Individual tax returns",
+          "Small business tax support",
+          "IRS and state notices",
+          "Amended returns",
+          "Bookkeeping cleanup",
+          "Tax planning",
+          "Specialized accounting and tax services"
+        ]
+      },
+      "internalFeatures": [
+        "admin dashboard",
+        "appointments",
+        "audit logs",
+        "availability",
+        "client management",
+        "contact requests",
+        "document templates",
+        "documents",
+        "messages",
+        "onboarding",
+        "role management",
+        "security and abuse controls"
+      ],
+      "publicReuse": true,
+      "internalReuse": true
+    },
+    {
+      "platform": "Lovable",
+      "name": "Durmaz Notary - Mobile Notary Hub",
+      "portfolioEntity": "Durmaz Notary Services DBA MobileNotaryHub",
+      "status": "published-source",
+      "publicContent": {
+        "positioning": "Mobile and remote online notary services for Chicago and Cook County.",
+        "serviceFamilies": [
+          "General notary work",
+          "Loan signing services",
+          "Estate-planning document notarization",
+          "Real-estate closing support",
+          "Mobile notary",
+          "Remote online notarization"
+        ]
+      },
+      "internalFeatures": [
+        "client management",
+        "appointments",
+        "documents",
+        "document templates",
+        "messages",
+        "audit logs",
+        "availability",
+        "role management"
+      ],
+      "publicReuse": true,
+      "internalReuse": true
+    },
+    {
+      "platform": "Base44",
+      "name": "TaxNavigator",
+      "portfolioEntity": "tax-operations-prototype",
+      "status": "structured-application-source",
+      "dataDomains": [
+        "clients",
+        "engagements",
+        "documents",
+        "tasks",
+        "communications",
+        "document interpretation",
+        "tax return profiles",
+        "clarification requests",
+        "source registry",
+        "audit logs",
+        "users"
+      ],
+      "sensitivity": "high",
+      "publicReuse": false,
+      "internalReuse": true,
+      "notes": "Schema metadata may inform internal SharePoint information architecture. Application records must not be copied to public GitHub or Google Sites."
+    },
+    {
+      "platform": "Replit",
+      "name": "Tax Agent Pro",
+      "portfolioEntity": "tax-operations-prototype",
+      "status": "prototype-source",
+      "publicContent": {
+        "positioning": "AI-assisted U.S. tax preparation, accounting workflows, professional research, and tax-firm operations prototype.",
+        "safeReuse": [
+          "high-level product purpose",
+          "generic feature categories",
+          "guided intake descriptions",
+          "document-organization concepts",
+          "human-review and escalation concepts",
+          "general authority-hierarchy education"
+        ]
+      },
+      "internalFeatures": [
+        "strategy",
+        "admin portal",
+        "case and escalation queues",
+        "risk indicators",
+        "research histories",
+        "audit-log concepts",
+        "staff training"
+      ],
+      "maturity": "frontend prototype",
+      "publicReuse": "selective-after-review",
+      "internalReuse": true
+    },
+    {
+      "platform": "Replit",
+      "name": "Tax Advisor AI",
+      "portfolioEntity": "tax-operations-prototype",
+      "status": "inventory-only",
+      "publicReuse": false,
+      "internalReuse": true,
+      "notes": "App is discoverable in the connected Replit account, but no Replit Agent is registered for content inspection in this session. No content has been inferred or fabricated."
+    },
+    {
+      "platform": "Replit",
+      "name": "Tax Agent AI",
+      "portfolioEntity": "tax-operations-prototype",
+      "status": "inventory-only",
+      "publicReuse": false,
+      "internalReuse": true,
+      "notes": "App is discoverable in the connected Replit account. Content remains unclassified until directly inspected."
+    }
+  ],
+  "excludedFromDurmazPortfolio": [
+    {
+      "platform": "Lovable",
+      "name": "Danny's Delightful Cakes",
+      "reason": "No controlled Durmaz portfolio mapping has been established."
+    }
+  ]
+}
