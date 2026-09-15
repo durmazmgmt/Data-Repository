@@ -1,0 +1,123 @@
+{
+  "version": "1.0.0",
+  "status": "implementation-ready-pending-sharepoint-online-license",
+  "tenantCheck": {
+    "result": "blocked",
+    "reason": "Connected Microsoft tenant currently reports that it does not have a SharePoint Online license.",
+    "provisioningAllowed": false
+  },
+  "architecture": {
+    "internal": {
+      "siteType": "team-site-or-private-communication-hub",
+      "workingName": "Durmaz Operations Hub",
+      "audience": "owners, administrators, staff, approved contractors",
+      "purpose": "Protected operational workspace for business records, source documents, client-safe operational metadata, procedures, tasks, portals, audit artifacts, and builder administration links.",
+      "navigation": [
+        "Home",
+        "Entity Register",
+        "Web & App Portfolio",
+        "Client Operations",
+        "Tax Operations",
+        "Notary Operations",
+        "Learning & Curriculum",
+        "Source Documents",
+        "Policies & SOPs",
+        "Technology & Integrations",
+        "Audit & Change Control"
+      ],
+      "libraries": [
+        {
+          "name": "Controlled Source Documents",
+          "classification": "internal",
+          "purpose": "Business plans, controlled baselines, procedures, approved source documents, and versioned reference files."
+        },
+        {
+          "name": "Website and App Sources",
+          "classification": "internal",
+          "purpose": "Cross-platform snapshots, exports, manifests, screenshots, content inventories, and migration packages from Macaly, GitHub, Base44, Replit, Lovable, and Google Sites."
+        },
+        {
+          "name": "Client Operations",
+          "classification": "restricted",
+          "purpose": "Client-facing operational documentation only after appropriate permission design. No public mirroring."
+        },
+        {
+          "name": "Compliance and Audit",
+          "classification": "restricted",
+          "purpose": "Audit logs, approvals, security reviews, change-control evidence, and compliance artifacts."
+        }
+      ],
+      "lists": [
+        "Entity Register",
+        "Website and App Register",
+        "Integration Register",
+        "Source Register",
+        "Change Log",
+        "Risk and Review Queue"
+      ],
+      "builderViews": {
+        "Lovable": ["Durmaz Management", "TaxSeasonSupport", "Durmaz Notary - Mobile Notary Hub"],
+        "Base44": ["TaxNavigator"],
+        "Replit": ["Tax Agent Pro", "Tax Advisor AI", "Tax Agent AI"],
+        "GitHub": ["durmazmgmt/Data-Repository"],
+        "MacalyConvex": ["Durmaz Central Data Repository"],
+        "Google": ["Google Sites presentation layer", "Google Drive source/reference layer"]
+      },
+      "security": {
+        "defaultVisibility": "internal",
+        "sensitiveLibraries": "restricted membership",
+        "publicAnonymousLinks": false,
+        "externalSharing": "disabled-by-default",
+        "secretsStorage": "not-in-documents-or-pages",
+        "clientDataInGitHub": false,
+        "clientDataInGoogleSites": false
+      }
+    },
+    "external": {
+      "siteType": "communication-site",
+      "workingName": "Durmaz Services & Resources",
+      "audience": "clients, prospects, partners, and approved external viewers",
+      "purpose": "Curated client-facing experience that reuses approved public service content and resources without exposing internal systems.",
+      "navigation": [
+        "Home",
+        "Business & Management Services",
+        "Tax Services",
+        "Notary Services",
+        "Learning & Resources",
+        "Forms & Templates",
+        "Contact & Intake",
+        "Client Access"
+      ],
+      "contentSources": [
+        "sanitized Convex public feed",
+        "GitHub public content registry",
+        "approved Google Drive documents with matching sharing scope",
+        "approved Lovable public service content",
+        "approved Replit public prototype content after editorial review"
+      ],
+      "prohibitedSources": [
+        "Base44 client records",
+        "Replit strategy/admin data",
+        "Lovable admin/client portal data",
+        "private Google Drive files",
+        "Macaly admin data",
+        "credentials, tokens, private keys, tax identifiers, or client financial data"
+      ],
+      "security": {
+        "defaultVisibility": "external-curated",
+        "writeAccess": false,
+        "clientPortalLinks": "deep-link-only-to-authenticated-system",
+        "publicFeed": "read-only-sanitized",
+        "internalMetadataExposure": false
+      }
+    }
+  },
+  "dataFlow": [
+    "Builder platforms remain authoritative for their application code and native runtime state.",
+    "Macaly/Convex remains the central structured repository and authorization boundary for controlled repository records.",
+    "GitHub stores sanitized public manifests, bridge code, versioned documentation, and deployment artifacts.",
+    "Internal SharePoint receives protected operational references and approved source documents once SharePoint Online is licensed.",
+    "External SharePoint and Google Sites consume only approved public content and read-only feeds.",
+    "Google Drive remains a protected source/reference document layer unless a document is independently approved for external publication."
+  ]
+}
