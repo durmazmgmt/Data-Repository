@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; connect-src https://charming-lapwing-610.eu-west-1.convex.site; img-src 'self' data:; style-src 'self'; script-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'" />
+  <title>Durmaz Public Repository</title>
+  <meta name="description" content="Read-only public repository bridge for Durmaz websites and Google Sites." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="hero">
+      <div>
+        <p class="eyebrow">Durmaz Repository · Public View</p>
+        <h1>Shared Website Repository</h1>
+        <p class="lede">A read-only view of records explicitly approved for public website use. Internal records, source documents, credentials, and administrative metadata are not exposed here.</p>
+      </div>
+      <div class="status" id="connectionStatus" aria-live="polite">Connecting…</div>
+    </header>
+
+    <section class="toolbar" aria-label="Repository filters">
+      <label>
+        <span>Search</span>
+        <input id="search" type="search" autocomplete="off" placeholder="Search public records" />
+      </label>
+      <label>
+        <span>Type</span>
+        <select id="typeFilter">
+          <option value="all">All types</option>
+        </select>
+      </label>
+    </section>
+
+    <section class="summary" aria-live="polite">
+      <strong id="recordCount">0</strong> public records
+      <span id="lastUpdated"></span>
+    </section>
+
+    <section id="records" class="grid" aria-label="Public repository records"></section>
+
+    <section id="emptyState" class="empty" hidden>
+      <h2>No matching public records</h2>
+      <p>Try another search or filter.</p>
+    </section>
+
+    <section id="errorState" class="empty error" hidden>
+      <h2>Repository feed unavailable</h2>
+      <p>The public feed could not be loaded. No private fallback data is stored in this page.</p>
+    </section>
+
+    <footer>
+      <p>Public integration surface only · HTTPS read-only feed · No administrative credentials stored in GitHub or Google Sites.</p>
+    </footer>
+  </main>
+  <script src="./app.js" defer></script>
+</body>
+</html>
