@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://durmazmgmt.github.io/Data-Repository/schemas/public-record.schema.json",
+  "title": "Durmaz Sanitized Public Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["key", "name", "recordType", "status", "tags"],
+  "properties": {
+    "key": {"type":"string","pattern":"^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+    "name": {"type":"string","minLength":1},
+    "recordType": {"enum":["entity","site","service","course","resource","brand"]},
+    "summary": {"type":"string"},
+    "status": {"enum":["approved","published","planned"]},
+    "tags": {"type":"array","items":{"type":"string"},"uniqueItems":true},
+    "updatedAt": {"type":"number"},
+    "version": {"type":"string"}
+  }
+}
