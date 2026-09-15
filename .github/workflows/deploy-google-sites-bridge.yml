@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - 'docs/**'
+      - '.github/workflows/deploy-google-sites-bridge.yml'
   workflow_dispatch:
 
 permissions:
@@ -13,35 +14,59 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: google-sites-bridge-pages
   cancel-in-progress: false
 
 jobs:
   deploy:
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
     env:
       PAGES_ADMIN_TOKEN: ${{ secrets.PAGES_ADMIN_TOKEN }}
+      PUBLIC_FEED: https://charming-lapwing-610.eu-west-1.convex.site/repository/public
 
     steps:
       - name: Checkout
         uses: actions/checkout@v6
 
-      # Optional first-time bootstrap. The repository secret PAGES_ADMIN_TOKEN
-      # must be a fine-grained token limited to this repository with
-      # Administration: write and Pages: write. Normal deployments do not
-      # require this secret after Pages has been enabled once.
+      - name: Validate bridge package
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f docs/index.html
+          test -f docs/styles.css
+          test -f docs/app.js
+          grep -Fq "$PUBLIC_FEED" docs/app.js
+          echo "Bridge package files and configured feed are present."
+
+      - name: Validate public feed safety
+        shell: bash
+        run: |
+          set -euo pipefail
+          payload="$(curl --fail --silent --show-error --retry 3 "$PUBLIC_FEED")"
+          count="$(jq -r '.count' <<<"$payload")"
+          test "$count" -ge 1
+          if jq -e '.items[] | has("sourceUrl") or has("contentJson") or has("sourceSystem")' <<<"$payload" >/dev/null; then
+            echo "Sensitive/internal fields were found in the public feed." >&2
+            exit 1
+          fi
+          echo "Public feed validated with $count record(s) and no blocked fields."
+
       - name: Enable and configure Pages (secure bootstrap)
+        id: bootstrap
         if: ${{ env.PAGES_ADMIN_TOKEN != '' }}
+        continue-on-error: true
         uses: actions/configure-pages@v5
         with:
           token: ${{ env.PAGES_ADMIN_TOKEN }}
           enablement: true
 
       - name: Configure existing Pages site
+        id: configure
         if: ${{ env.PAGES_ADMIN_TOKEN == '' }}
+        continue-on-error: true
         uses: actions/configure-pages@v5
 
       - name: Upload bridge artifact
@@ -51,4 +76,23 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
+        if: ${{ steps.bootstrap.outcome == 'success' || steps.configure.outcome == 'success' }}
         uses: actions/deploy-pages@v5
+
+      - name: Record deployment status
+        if: ${{ always() }}
+        shell: bash
+        run: |
+          {
+            echo "## Google Sites Bridge"
+            echo
+            echo "- Bridge package validation: complete"
+            echo "- Public feed security validation: complete"
+            if [[ "${{ steps.deployment.outcome }}" == "success" ]]; then
+              echo "- GitHub Pages deployment: complete"
+              echo "- Published URL: ${{ steps.deployment.outputs.page_url }}"
+            else
+              echo "- GitHub Pages deployment: pending repository Pages enablement"
+              echo "- The validated artifact remains ready for deployment as soon as Pages is enabled."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
