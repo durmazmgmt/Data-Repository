@@ -1,0 +1,73 @@
+{
+  "snapshotVersion": "1.0.0",
+  "generatedFrom": "sanitized-public-feed",
+  "sourceUpdatedAtMax": 1789502228937,
+  "generatedAt": "2026-09-15T19:57:08.937Z",
+  "count": 7,
+  "items": [
+    {
+      "key": "addiction-skin-care",
+      "name": "Addiction Skin Care",
+      "recordType": "site",
+      "summary": "Skincare guides, recipes, product resources, and partner content platform.",
+      "status": "active",
+      "tags": ["skincare", "guides", "website"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "durmaz-holdings",
+      "name": "Durmaz Holdings LLC",
+      "recordType": "entity",
+      "summary": "Parent organization and governance record for the Durmaz business portfolio.",
+      "status": "active",
+      "version": "v1.0",
+      "tags": ["parent", "governance", "portfolio"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "durmaz-learning-academy",
+      "name": "Durmaz Learning Academy",
+      "recordType": "site",
+      "summary": "Professional education, continuing education, and course repository platform.",
+      "status": "active",
+      "tags": ["education", "courses", "website"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "durmaz-management",
+      "name": "Durmaz Management LLC DBA Durmaz Mgmt",
+      "recordType": "entity",
+      "summary": "Management and professional services operating entity.",
+      "status": "active",
+      "tags": ["management", "services"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "efg-accounting-group",
+      "name": "EFG Accounting Group",
+      "recordType": "entity",
+      "summary": "Accounting, tax, and financial-services brand record.",
+      "status": "active",
+      "tags": ["accounting", "tax", "finance"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "mobile-notary-hub",
+      "name": "Durmaz Notary Services DBA MobileNotaryHub",
+      "recordType": "site",
+      "summary": "Mobile, remote-online, and signing-agent notary services platform.",
+      "status": "active",
+      "tags": ["notary", "website", "service"],
+      "updatedAt": 1789502228937
+    },
+    {
+      "key": "tax-season-support",
+      "name": "TaxSeasonSupport",
+      "recordType": "site",
+      "summary": "Tax support service and client-facing website record.",
+      "status": "active",
+      "tags": ["tax", "website", "service"],
+      "updatedAt": 1789502228937
+    }
+  ]
+}
