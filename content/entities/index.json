@@ -1,0 +1,32 @@
+{
+  "version": "1.0.0",
+  "items": [
+    {
+      "key": "durmaz-holdings",
+      "name": "Durmaz Holdings LLC",
+      "recordType": "entity",
+      "summary": "Parent organization and governance record for the Durmaz business portfolio.",
+      "status": "approved",
+      "tags": ["parent", "governance", "portfolio"],
+      "version": "v1.0"
+    },
+    {
+      "key": "durmaz-management",
+      "name": "Durmaz Management LLC DBA Durmaz Mgmt",
+      "recordType": "entity",
+      "summary": "Management and professional services operating entity.",
+      "status": "approved",
+      "tags": ["management", "services"],
+      "version": "1.0.0"
+    },
+    {
+      "key": "efg-accounting-group",
+      "name": "EFG Accounting Group",
+      "recordType": "entity",
+      "summary": "Accounting, tax, and financial-services brand record.",
+      "status": "approved",
+      "tags": ["accounting", "tax", "finance"],
+      "version": "1.0.0"
+    }
+  ]
+}
