@@ -1,0 +1,16 @@
+{
+  "method": "Pillow median-cut, 256px bounded sample, transparent and near-white pixels excluded",
+  "source": "ten approved logo uploads supplied in the project conversation",
+  "brands": {
+    "durmaz-home-services": ["#C9A461","#18314C","#011329","#041D38","#E7D3A8","#021A35","#010D20","#826B43","#061427","#0C2137"],
+    "mobile-notary-hub": ["#BA9B5A","#E1C682","#031C3B","#F9F0D3","#020A1C","#00132D","#7C6946","#051328","#36332F","#102238"],
+    "efg-accounting-group": ["#031C3F","#C09446","#D7BD83","#021330","#86714C","#032D59","#F1EAD2","#022A55","#E7D7AC","#223447"],
+    "addiction-skin-care": ["#1D2713","#384128","#9D7A5A","#5E694C","#E5D2BE","#AEA488","#DBC1A7","#F2E2D0","#CFAB8A","#F6EDE3"],
+    "maid-of-all-trades": ["#C9B96F","#E8E1BE","#A48B4A","#556E20","#0D0C0B","#1D1B18","#2F2D29","#1F2C11","#161715","#3F4326"],
+    "tax-season-support": ["#DBE9EE","#5ABC69","#0057B5","#045AB3","#022A74","#003C91","#395C9B","#479777","#123D87","#0D8781"],
+    "durmaz-management": ["#CDB481","#AC8C59","#896940","#051E43","#EBDDBC","#020F2B","#041533","#0E2C52","#011637","#404249"],
+    "chic-chicago-homes": ["#141311","#B08B44","#1B1A18","#D2B067","#7B5C2A","#0B0A09","#25201A","#E3CB94","#43331B","#F3E3B1"],
+    "durmaz-learning-academy": ["#BC8E41","#051832","#052140","#D7BA7E","#031026","#0B2B4B","#F5EEDD","#6D675C","#EBD9B0","#243140"],
+    "durmaz-holdings": ["#E4C989","#CBA965","#2D2B2A","#F5E7B5","#AA864B","#1A1918","#353536","#876433","#404040","#664922"]
+  }
+}
