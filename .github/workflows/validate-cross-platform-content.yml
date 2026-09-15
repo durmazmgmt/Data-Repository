@@ -49,8 +49,35 @@ jobs:
       - name: Scan public repository for forbidden secret patterns
         shell: bash
         run: |
-          if grep -RInE --exclude-dir=.git --exclude='*.md' '(BEGIN (RSA|OPENSSH|EC) PRIVATE KEY|sk-proj-|CONVEX_DEPLOY_KEY=|SECRET_KEY=|RAILWAY_TOKEN=|RAILWAY_API_TOKEN=)' .; then
-            echo 'Forbidden secret-like content detected.' >&2
-            exit 1
-          fi
-          echo 'No forbidden secret patterns detected.'
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          patterns = [
+              r"BEGIN " + r"(?:RSA|OPENSSH|EC)" + r" PRIVATE KEY",
+              "sk-" + "proj-",
+              "CONVEX_" + "DEPLOY_KEY=",
+              "SECRET_" + "KEY=",
+              "RAILWAY_" + "TOKEN=",
+              "RAILWAY_API_" + "TOKEN=",
+          ]
+          compiled = [re.compile(pattern) for pattern in patterns]
+          matches = []
+          for path in Path('.').rglob('*'):
+              if not path.is_file() or '.git' in path.parts or path.suffix.lower() == '.md':
+                  continue
+              try:
+                  text = path.read_text(encoding='utf-8')
+              except UnicodeDecodeError:
+                  continue
+              for pattern in compiled:
+                  if pattern.search(text):
+                      matches.append(str(path))
+                      break
+          if matches:
+              print('Forbidden secret-like content detected in:')
+              for match in matches:
+                  print(match)
+              raise SystemExit(1)
+          print('No forbidden secret patterns detected.')
+          PY
