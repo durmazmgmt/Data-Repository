@@ -48,6 +48,8 @@ An unrelated Lovable project, Danny's Delightful Cakes, is intentionally exclude
 
 The internal and external SharePoint designs are prepared. The currently connected Microsoft tenant reports that it does not have a SharePoint Online license, so SharePoint site/library provisioning is blocked until licensing is enabled.
 
-## GitHub Pages / Google Sites bridge
+## Website directory and privacy boundary
 
-The workflow validates the static bridge package and the sanitized public feed before preparing the Pages artifact. The public feed must contain only approved public records and must exclude internal source metadata and private JSON payloads.
+The `docs/` package validates a public-safe website directory and sanitized repository feed. GitHub Pages remains disabled so this repository does not publish a second public site. The approved destinations use their existing ChatGPT Sites access policies; private sites require authentication at the destination. The directory exposes no admin URLs, client records, course source documents, credentials, or private JSON payloads.
+
+Durmaz Learning version 12 provides 100 in-site course records, 437 session plans and applied assignments, 40 pathways, assessment rubrics, and the private Student Expo. Separate syllabus pages and downloadable course documents are not published on the Learning site.
