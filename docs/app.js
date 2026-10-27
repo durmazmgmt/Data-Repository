@@ -54,6 +54,23 @@ function renderContentCollections() {
       list.append(item);
     }
     panel.append(list);
+
+    if (collection.siteUrl || collection.accessUrl) {
+      const actions = makeElement('div', 'site-actions');
+      if (collection.siteUrl) {
+        const siteLink = makeElement('a', 'site-link primary-link', 'Open site');
+        siteLink.href = collection.siteUrl;
+        siteLink.rel = 'noreferrer';
+        actions.append(siteLink);
+      }
+      if (collection.accessUrl) {
+        const accessLink = makeElement('a', 'site-link', 'Client access');
+        accessLink.href = collection.accessUrl;
+        accessLink.rel = 'noreferrer';
+        actions.append(accessLink);
+      }
+      panel.append(actions);
+    }
     publicContentEl.append(panel);
   }
 }
