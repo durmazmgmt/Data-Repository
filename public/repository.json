@@ -1,8 +1,8 @@
 {
-  "snapshotVersion": "1.0.0",
+  "snapshotVersion": "1.1.0",
   "generatedFrom": "sanitized-public-feed",
   "sourceUpdatedAtMax": 1789502228937,
-  "generatedAt": "2026-09-15T19:57:08.937Z",
+  "generatedAt": "2026-10-27T23:15:31Z",
   "count": 7,
   "items": [
     {
@@ -11,8 +11,14 @@
       "recordType": "site",
       "summary": "Skincare guides, recipes, product resources, and partner content platform.",
       "status": "active",
-      "tags": ["skincare", "guides", "website"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "skincare",
+        "guides",
+        "website"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://addiction-skin-care.durmazem.chatgpt.site",
+      "accessUrl": "https://addiction-skin-care.durmazem.chatgpt.site/access"
     },
     {
       "key": "durmaz-holdings",
@@ -21,17 +27,29 @@
       "summary": "Parent organization and governance record for the Durmaz business portfolio.",
       "status": "active",
       "version": "v1.0",
-      "tags": ["parent", "governance", "portfolio"],
+      "tags": [
+        "parent",
+        "governance",
+        "portfolio"
+      ],
       "updatedAt": 1789502228937
     },
     {
       "key": "durmaz-learning-academy",
       "name": "Durmaz Learning Academy",
       "recordType": "site",
-      "summary": "Professional education, continuing education, and course repository platform.",
+      "summary": "Private professional learning catalog with 100 courses, 437 sessions, 40 pathways, complete in-site curriculum, applied assignments, assessment rubrics, and no downloadable course documents.",
       "status": "active",
-      "tags": ["education", "courses", "website"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "education",
+        "100 courses",
+        "curriculum",
+        "private website"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://durmaz-learning.durmazem.chatgpt.site",
+      "accessUrl": "https://durmaz-learning.durmazem.chatgpt.site/access",
+      "version": "12"
     },
     {
       "key": "durmaz-management",
@@ -39,8 +57,13 @@
       "recordType": "entity",
       "summary": "Management and professional services operating entity.",
       "status": "active",
-      "tags": ["management", "services"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "management",
+        "services"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://durmaz-mgmt.durmazem.chatgpt.site",
+      "accessUrl": "https://durmaz-mgmt.durmazem.chatgpt.site/access"
     },
     {
       "key": "efg-accounting-group",
@@ -48,8 +71,14 @@
       "recordType": "entity",
       "summary": "Accounting, tax, and financial-services brand record.",
       "status": "active",
-      "tags": ["accounting", "tax", "finance"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "accounting",
+        "tax",
+        "finance"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://efg-accounting-group.durmazem.chatgpt.site",
+      "accessUrl": "https://efg-accounting-group.durmazem.chatgpt.site/access"
     },
     {
       "key": "mobile-notary-hub",
@@ -57,8 +86,14 @@
       "recordType": "site",
       "summary": "Mobile, remote-online, and signing-agent notary services platform.",
       "status": "active",
-      "tags": ["notary", "website", "service"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "notary",
+        "website",
+        "service"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://mobile-notary-hub.durmazem.chatgpt.site",
+      "accessUrl": "https://mobile-notary-hub.durmazem.chatgpt.site/access"
     },
     {
       "key": "tax-season-support",
@@ -66,8 +101,14 @@
       "recordType": "site",
       "summary": "Tax support service and client-facing website record.",
       "status": "active",
-      "tags": ["tax", "website", "service"],
-      "updatedAt": 1789502228937
+      "tags": [
+        "tax",
+        "website",
+        "service"
+      ],
+      "updatedAt": 1789502228937,
+      "siteUrl": "https://taxseasonsupport.durmazem.chatgpt.site",
+      "accessUrl": "https://taxseasonsupport.durmazem.chatgpt.site/access"
     }
   ]
 }
